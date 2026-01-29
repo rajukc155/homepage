@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMaster Academy - Learn AI & Programming</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>CodeMaster</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#videos">Videos</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Master AI & Programming</h2>
+            <p>Learn from industry experts. Build real-world projects. Launch your tech career.</p>
+            <button class="cta-btn" onclick="document.getElementById('courses').scrollIntoView({behavior: 'smooth'})">
+                Explore Courses
+            </button>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop" alt="Programming">
+        </div>
+    </section>
+    <section id="courses" class="courses">
+        <div class="container">
+            <h2 class="section-title">Featured Courses</h2>
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f70d504f0?w=400&h=250&fit=crop" alt="Python for AI">
+                    <h3>Python for AI & ML</h3>
+                    <p>Master Python programming fundamentals and dive into machine learning with hands-on projects.</p>
+                    <div class="course-info">
+                        <span class="level">Beginner</span>
+                        <span class="price">10000Rs monthly</span>
+                    </div>
+                    <button class="enroll-btn">Enroll Now</button>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=400&h=250&fit=crop" alt="Web Development">
+                    <h3>Full Stack Web Development</h3>
+                    <p>Learn HTML, CSS, JavaScript, React, Node.js, and MongoDB to build complete web applications.</p>
+                    <div class="course-info">
+                        <span class="level">Intermediate</span>
+                        <span class="price">$59.99</span>
+                    </div>
+                    <button class="enroll-btn">Enroll Now</button>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1667482760441-99419467a4c1?w=400&h=250&fit=crop" alt="Data Science">
+                    <h3>Data Science Mastery</h3>
+                    <p>Explore data analysis, visualization, and predictive modeling with Python and powerful libraries.</p>
+                    <div class="course-info">
+                        <span class="level">Advanced</span>
+                        <span class="price">5000Rs</span>
+                    </div>
+                    <button class="enroll-btn">Enroll Now</button>
+                </div>
+
+               
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1678370733604-d40e6e80e7f2?w=400&h=250&fit=crop" alt="JavaScript">
+                    <h3>Advanced JavaScript</h3>
+                    <p>Go beyond basics with async programming, closures, prototypes, and modern ES6+ features.</p>
+                    <div class="course-info">
+                        <span class="level">Intermediate</span>
+                        <span class="price">$49.99</span>
+                    </div>
+                    <button class="enroll-btn">Enroll Now</button>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1717694712614-08426adbb4d1?w=400&h=250&fit=crop" alt="AI Fundamentals">
+                    <h3>AI Fundamentals</h3>
+                    <p>Understand neural networks, deep learning, and AI concepts from scratch with practical examples.</p>
+                    <div class="course-info">
+                        <span class="level">Beginner</span>
+                        <span class="price">$54.99</span>
+                    </div>
+                    <button class="enroll-btn">Enroll Now</button>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop" alt="Mobile Development">
+                    <h3>React Native & Mobile</h3>
+                    <p>Build cross-platform mobile applications using React Native for iOS and Android.</p>
+                    <div class="course-info">
+                        <span class="level">Advanced</span>
+                        <span class="price">5000Rs</span>
+                    </div>
+                    <button class="enroll-btn">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="videos" class="videos">
+        <div class="container">
+            <h2 class="section-title">Learning Videos</h2>
+            <p class="section-subtitle">Watch tutorials from our expert instructors</p>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/kqtD5dpn9C0" title="Python Basics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h3>Python Basics for Beginners</h3>
+                    <p>Learn Python fundamentals including variables, loops, and functions</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/9uKED52mahA" title="JavaScript Intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h3>JavaScript Introduction</h3>
+                    <p>Get started with JavaScript for web development</p>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/a9FxdeFbXc4" title="Machine Learning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h3>Machine Learning Basics</h3>
+                    <p>Understand the fundamentals of machine learning</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/8jLOx1hD3_o" title="Web Development" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h3>Web Development with React</h3>
+                    <p>Build interactive web applications using React</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="stats">
+        <div class="container">
+            <div class="stat-item">
+                <h3>50K+</h3>
+                <p>Active Students</p>
+            </div>
+            <div class="stat-item">
+                <h3>200+</h3>
+                <p>Courses Available</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Satisfaction Rate</p>
+            </div>
+            <div class="stat-item">
+                <h3>100+</h3>
+                <p>Expert Instructors</p>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Student Testimonials</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"CodeMaster Academy transformed my career. The courses are well-structured and instructors are amazing!"</p>
+                    <h4>Sarah Johnson</h4>
+                    <span>Software Engineer</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I went from zero coding knowledge to building production apps. Highly recommended!"</p>
+                    <h4>Mike Chen</h4>
+                    <span>Full Stack Developer</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The AI course was exactly what I needed. Practical examples and real-world projects!"</p>
+                    <h4>Emma Davis</h4>
+                    <span>Data Scientist</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Learning?</h2>
+            <p>Join thousands of students who are advancing their tech careers</p>
+            <button class="cta-btn-large">Enroll Now</button>
+        </div>
+    </section>
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CodeMaster Academy</h4>
+                    <p>Empowering the next generation of developers and AI experts.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#videos">Videos</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">Facebook</a>
+                        <a href="#" class="social-icon">Twitter</a>
+                        <a href="#" class="social-icon">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: rajukc657@gmail.com</p>
+                    <p>Phone: 07091751351</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeMaster Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
