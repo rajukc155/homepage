@@ -13,23 +13,54 @@
                 <div class="logo">
                     <h1>CodeMaster</h1>
                 </div>
+                <div class="nav-menu-btn" onclick="toggleNavDropdown(event)">
+                    <span class="menu-icon">☰ Menu</span>
+                </div>
+                <div class="nav-dropdown" id="navDropdown">
+                    <div class="dropdown-content">
+                        <a href="#home" class="dropdown-link" onclick="closeNavDropdown()">
+                            <span class="icon">🏠</span> Home
+                        </a>
+                        <a href="#courses" class="dropdown-link" onclick="closeNavDropdown()">
+                            <span class="icon">📚</span> Courses
+                        </a>
+                        <a href="#videos" class="dropdown-link" onclick="closeNavDropdown()">
+                            <span class="icon">🎥</span> Videos
+                        </a>
+                        <a href="#testimonials" class="dropdown-link" onclick="closeNavDropdown()">
+                            <span class="icon">⭐</span> Reviews
+                        </a>
+                        <a href="#contact" class="dropdown-link" onclick="closeNavDropdown()">
+                            <span class="icon">📞</span> Contact
+                        </a>
+                        <button class="dropdown-link signup-btn" onclick="openSignupModal(event); closeNavDropdown()">
+                            <span class="icon">✨</span> Sign Up
+                        </button>
+                    </div>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#courses">Courses</a></li>
                     <li><a href="#videos">Videos</a></li>
                     <li><a href="#testimonials">Reviews</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    
+                    <li><a href="#" onclick="openSignupModal(event)">Sign Up</a></li>
                 </ul>
-                <div class="burger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </div>
             </div>
         </div>
     </nav>
     <section id="home" class="hero">
+        <div class="coding-bg">
+            <div class="code-line code-1"><span class="code-text">{'function learnToCode(){'}</span></div>
+            <div class="code-line code-2"><span class="code-text">const passion = true;</span></div>
+            <div class="code-line code-3"><span class="code-text">const skill = 'Master';</span></div>
+            <div class="code-line code-4"><span class="code-text">return success();</span></div>
+            <div class="code-line code-5"><span class="code-text">import AI from 'future';</span></div>
+            <div class="code-line code-6"><span class="code-text">class Developer extends Human</span></div>
+            <div class="code-line code-7"><span class="code-text">async function buildApp() {}</span></div>
+            <div class="code-line code-8"><span class="code-text">let innovation = ∞;</span></div>
+        </div>
+
         <div class="hero-content">
             <h2>Master AI & Programming</h2>
             <p>Learn from industry experts. Build real-world projects. Launch your tech career.</p>
@@ -38,7 +69,10 @@
             </button>
         </div>
         <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop" alt="Programming">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop" alt="Programming">
+                <div class="image-overlay"></div>
+            </div>
         </div>
     </section>
     <section id="courses" class="courses">
@@ -119,29 +153,42 @@
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe width="100%" height="250" src="https://www.youtube.com/embed/kqtD5dpn9C0" title="Python Basics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="play-button-overlay" onclick="this.parentElement.querySelector('iframe').click()">
+                            <button class="play-btn">▶</button>
+                        </div>
                     </div>
                     <h3>Python Basics for Beginners</h3>
                     <p>Learn Python fundamentals including variables, loops, and functions</p>
                 </div>
+
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe width="100%" height="250" src="https://www.youtube.com/embed/9uKED52mahA" title="JavaScript Intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="play-button-overlay" onclick="this.parentElement.querySelector('iframe').click()">
+                            <button class="play-btn">▶</button>
+                        </div>
                     </div>
                     <h3>JavaScript Introduction</h3>
                     <p>Get started with JavaScript for web development</p>
                 </div>
 
-                <!-- Video 3 -->
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe width="100%" height="250" src="https://www.youtube.com/embed/a9FxdeFbXc4" title="Machine Learning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="play-button-overlay" onclick="this.parentElement.querySelector('iframe').click()">
+                            <button class="play-btn">▶</button>
+                        </div>
                     </div>
                     <h3>Machine Learning Basics</h3>
                     <p>Understand the fundamentals of machine learning</p>
                 </div>
+
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe width="100%" height="250" src="https://www.youtube.com/embed/8jLOx1hD3_o" title="Web Development" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="play-button-overlay" onclick="this.parentElement.querySelector('iframe').click()">
+                            <button class="play-btn">▶</button>
+                        </div>
                     </div>
                     <h3>Web Development with React</h3>
                     <p>Build interactive web applications using React</p>
@@ -201,6 +248,43 @@
             <button class="cta-btn-large">Enroll Now</button>
         </div>
     </section>
+    <!-- Sign Up Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeSignupModal()">&times;</span>
+            <h2>Join CodeMaster Academy</h2>
+            <p>Sign up to get started with your learning journey</p>
+            <form id="signupForm" onsubmit="handleSignupSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    <span class="error-message" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="about">About You</label>
+                    <textarea id="about" name="about" placeholder="Tell us about yourself and your learning goals" rows="4"></textarea>
+                    <span class="error-message" id="aboutError"></span>
+                </div>
+
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+            <p class="form-footer">Already have an account? <a href="#">Sign In</a></p>
+        </div>
+    </div>
+
     <footer id="contact" class="footer">
         <div class="container">
             <div class="footer-content">

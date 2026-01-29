@@ -1,26 +1,75 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-links li');
-    burger.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-        burger.classList.toggle('active');
-    });
-    navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            navLinks.classList.remove('active');
-            burger.classList.remove('active');
-        });
-    });
-    const lines = document.querySelectorAll('.burger div');
-    burger.addEventListener('click', function() {
-        lines[0].classList.toggle('line1-active');
-        lines[1].classList.toggle('line2-active');
-        lines[2].classList.toggle('line3-active');
-    });
+function toggleNavDropdown(event) {
+    event.preventDefault();
+    const dropdown = document.getElementById('navDropdown');
+    dropdown.classList.toggle('active');
+}
+
+function closeNavDropdown() {
+    const dropdown = document.getElementById('navDropdown');
+    dropdown.classList.remove('active');
+}
+document.addEventListener('click', function(event) {
+    const dropdown = document.getElementById('navDropdown');
+    const menuBtn = document.querySelector('.nav-menu-btn');
+    
+    if (!dropdown.contains(event.target) && !menuBtn.contains(event.target)) {
+        dropdown.classList.remove('active');
+    }
+});
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeNavDropdown();
+    }
 });
 
-// ==================== Enroll Button Handlers ==================== 
+// ==================== Video Play Button Handler ==================== 
+document.addEventListener('DOMContentLoaded', function() {
+    const playButtons = document.querySelectorAll('.play-button-overlay');
+    
+    playButtons.forEach(overlay => {
+        overlay.addEventListener('click', function(e) {
+            e.preventDefault();
+            const videoWrapper = this.parentElement;
+            const iframe = videoWrapper.querySelector('iframe');
+            
+            // Add animation effect
+            const playBtn = this.querySelector('.play-btn');
+            playBtn.style.animation = 'none';
+            setTimeout(() => {
+                playBtn.style.animation = '';
+            }, 10);
+            
+            // Trigger iframe focus and autoplay
+            if (iframe) {
+                // Hide overlay after click to show video is playing
+                this.style.opacity = '0.1';
+                this.style.pointerEvents = 'none';
+                
+                // Re-enable overlay on hover
+                videoWrapper.addEventListener('mouseleave', () => {
+                    this.style.opacity = '1';
+                    this.style.pointerEvents = 'all';
+                });
+            }
+        });
+        
+        // Show overlay on hover
+        const videoWrapper = overlay.parentElement;
+        videoWrapper.addEventListener('mouseenter', () => {
+            overlay.style.opacity = '1';
+        });
+    });
+    document.querySelectorAll('.play-btn').forEach((btn, index) => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            console.log(`Video ${index + 1} play button clicked`);
+            trackEvent('video_play_clicked', {
+                video_number: index + 1,
+                timestamp: new Date().toISOString()
+            });
+        });
+    });
+});
 document.addEventListener('DOMContentLoaded', function() {
     const enrollButtons = document.querySelectorAll('.enroll-btn');
     const ctaButtonLarge = document.querySelector('.cta-btn-large');
@@ -45,8 +94,6 @@ function showEnrollModal(courseTitle) {
     // In a real application, you would open a modal or redirect to an enrollment page
     console.log(`User interested in: ${courseTitle}`);
 }
-
-// ==================== Smooth Scroll Behavior ==================== 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -59,8 +106,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// ==================== Navbar Background on Scroll ==================== 
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
@@ -69,8 +114,6 @@ window.addEventListener('scroll', function() {
         navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
     }
 });
-
-// ==================== Intersection Observer for Animations ==================== 
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -84,8 +127,6 @@ const observer = new IntersectionObserver(function(entries) {
         }
     });
 }, observerOptions);
-
-// Observe course cards, video cards, and testimonial cards
 document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.course-card, .video-card, .testimonial-card');
     cards.forEach(card => {
@@ -95,8 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 });
-
-// ==================== Counter Animation for Stats ==================== 
 function animateCounter(element, target, duration = 2000) {
     let current = 0;
     const increment = target / (duration / 16);
@@ -113,8 +152,6 @@ function animateCounter(element, target, duration = 2000) {
     
     updateCounter();
 }
-
-// Trigger stat counters when they come into view
 document.addEventListener('DOMContentLoaded', function() {
     const statsSection = document.querySelector('.stats');
     const statItems = document.querySelectorAll('.stat-item h3');
@@ -139,8 +176,6 @@ document.addEventListener('DOMContentLoaded', function() {
         statsObserver.observe(statsSection);
     }
 });
-
-// ==================== Form Validation (for future contact form) ==================== 
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
@@ -158,8 +193,6 @@ function validateForm(formData) {
     }
     return { valid: true, message: 'Form is valid' };
 }
-
-// ==================== Dynamic Greeting Based on Time ==================== 
 function getGreeting() {
     const hour = new Date().getHours();
     if (hour < 12) {
@@ -170,22 +203,15 @@ function getGreeting() {
         return 'Good Evening';
     }
 }
-
-// ==================== Analytics Tracking (placeholder) ==================== 
 function trackEvent(eventName, eventData = {}) {
     console.log(`Event: ${eventName}`, eventData);
-    // In a real application, you would send this to an analytics service
 }
-
-// Track page view
 document.addEventListener('DOMContentLoaded', function() {
     trackEvent('page_view', {
         page: 'homepage',
         timestamp: new Date().toISOString()
     });
 });
-
-// Track course enrollment interest
 document.addEventListener('DOMContentLoaded', function() {
     const enrollButtons = document.querySelectorAll('.enroll-btn');
     enrollButtons.forEach((button, index) => {
@@ -219,8 +245,6 @@ if ('IntersectionObserver' in window) {
         });
     });
 }
-
-// ==================== Scroll to Top Button ==================== 
 function createScrollToTopButton() {
     const button = document.createElement('button');
     button.id = 'scroll-to-top';
@@ -269,7 +293,143 @@ function createScrollToTopButton() {
 }
 
 document.addEventListener('DOMContentLoaded', createScrollToTopButton);
+function openSignupModal(event) {
+    if (event) {
+        event.preventDefault();
+    }
+    const modal = document.getElementById('signupModal');
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    trackEvent('signup_modal_opened', {
+        timestamp: new Date().toISOString()
+    });
+}
 
-// ==================== Console Welcome Message ==================== 
+function closeSignupModal() {
+    const modal = document.getElementById('signupModal');
+    modal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+    resetSignupForm();
+}
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('signupModal');
+    if (event.target === modal) {
+        closeSignupModal();
+    }
+});
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeSignupModal();
+    }
+});
+function handleSignupSubmit(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const about = document.getElementById('about').value.trim();
+    clearFormErrors();
+    
+    // Validate form
+    let isValid = true;
+    
+    if (!name || name.length < 2) {
+        showError('nameError', 'Name must be at least 2 characters');
+        isValid = false;
+    }
+    
+    if (!validateEmail(email)) {
+        showError('emailError', 'Please enter a valid email address');
+        isValid = false;
+    }
+    
+    if (!validatePhone(phone)) {
+        showError('phoneError', 'Please enter a valid phone number');
+        isValid = false;
+    }
+    
+    if (about && about.length < 5) {
+        showError('aboutError', 'About section should be at least 5 characters');
+        isValid = false;
+    }
+    
+    if (isValid) {
+        const submitBtn = document.querySelector('.submit-btn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Creating Account...';
+        setTimeout(() => {
+            const formData = {
+                name: name,
+                email: email,
+                phone: phone,
+                about: about,
+                timestamp: new Date().toISOString()
+            };
+            console.log('Sign up data:', formData);
+            trackEvent('user_signup', formData);
+            showSuccessMessage();
+            setTimeout(() => {
+                closeSignupModal();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Create Account';
+            }, 2000);
+        }, 1500);
+    }
+}
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function validatePhone(phone) {
+    // Accept various phone formats
+    const re = /^[0-9\s\-\+\(\)]{7,}$/;
+    return re.test(phone);
+}
+
+function showError(elementId, message) {
+    const errorElement = document.getElementById(elementId);
+    if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.classList.add('show');
+        
+        // Also add error class to input field
+        const fieldId = elementId.replace('Error', '');
+        const field = document.getElementById(fieldId);
+        if (field) {
+            field.classList.add('error');
+        }
+    }
+}
+
+function clearFormErrors() {
+    const errorElements = document.querySelectorAll('.error-message');
+    const inputFields = document.querySelectorAll('.form-group input, .form-group textarea');
+    
+    errorElements.forEach(el => {
+        el.textContent = '';
+        el.classList.remove('show');
+    });
+    
+    inputFields.forEach(field => {
+        field.classList.remove('error');
+    });
+}
+
+function resetSignupForm() {
+    const form = document.getElementById('signupForm');
+    if (form) {
+        form.reset();
+        clearFormErrors();
+    }
+}
+
+function showSuccessMessage() {
+    const name = document.getElementById('name').value;
+    alert(`Welcome to CodeMaster Academy, ${name}!\n\nYour account has been created successfully. Check your email for further instructions.`);
+    console.log('User registration successful');
+}
 console.log('%c Welcome to CodeMaster Academy!', 'font-size: 20px; color: #667eea; font-weight: bold;');
 console.log('%c Learn AI & Programming with our expert instructors', 'font-size: 14px; color: #764ba2;');
