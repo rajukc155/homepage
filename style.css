@@ -76,7 +76,7 @@ body {
     display: none;
     cursor: pointer;
     padding: 10px 15px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: #dc2626;
     color: white;
     border: none;
     border-radius: 5px;
@@ -88,7 +88,8 @@ body {
 
 .nav-menu-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.6);
+    background: #b91c1c;
 }
 
 .menu-icon {
@@ -102,7 +103,7 @@ body {
     position: fixed;
     top: 70px;
     right: 20px;
-    background: white;
+    background: #10b981;
     border-radius: 10px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     min-width: 250px;
@@ -129,7 +130,7 @@ body {
 
 .dropdown-link {
     padding: 15px 20px;
-    color: var(--text-dark);
+    color: white;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -150,14 +151,14 @@ body {
     top: 0;
     height: 100%;
     width: 4px;
-    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    background: white;
     transform: scaleY(0);
     transition: transform 0.3s ease;
     transform-origin: center;
 }
 
 .dropdown-link:hover {
-    background-color: var(--light-bg);
+    background-color: rgba(255, 255, 255, 0.2);
     padding-left: 25px;
 }
 
@@ -172,11 +173,11 @@ body {
 }
 
 .dropdown-link:hover {
-    color: var(--primary-color);
+    color: white;
 }
 
 .signup-btn {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: #dc2626;
     color: white !important;
     margin: 10px 10px 0 10px;
     border-radius: 5px;
@@ -184,9 +185,9 @@ body {
 }
 
 .signup-btn:hover {
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    background: #b91c1c;
     padding-left: 20px !important;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.6);
 }
 
 /* ==================== Separator ==================== */
