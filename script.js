@@ -225,8 +225,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-// ==================== Lazy Loading Setup (optional) ==================== 
 if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -394,8 +392,6 @@ function showError(elementId, message) {
     if (errorElement) {
         errorElement.textContent = message;
         errorElement.classList.add('show');
-        
-        // Also add error class to input field
         const fieldId = elementId.replace('Error', '');
         const field = document.getElementById(fieldId);
         if (field) {
